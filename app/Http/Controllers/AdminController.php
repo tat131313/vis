@@ -12,21 +12,6 @@ class AdminController extends Controller
         return view('psw');
     }
 
-    public function enterPassword(Request $request)
-    {
-        $rules = [
-            'password' => 'required',
-        ];
-    
-        $this->validate($request, $rules);
-
-        if($request->password == '1111') {
-            return redirect('adminPage');
-        } else {
-            return back();
-        }      
-    }
-
     public function showAdminPage()
     {
         $comments = Comment::select('id', 'name', 'email', 'comment')
@@ -37,11 +22,10 @@ class AdminController extends Controller
 
     public function deleteComment(Request $request)
     {
-        //dump($request);
         if(isset($request->delete)) {
             Comment::where('id', $request->delete)
                         ->delete();
         }
-        return redirect('adminPage');
+        return redirect()->back();
     }
 }

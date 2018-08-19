@@ -21,11 +21,11 @@
                 <div class="card-body">
                     <form action="{{route('addNewComment')}}" method="POST">
                         {{ csrf_field() }}
-                        <input type="text" class="form-control" placeholder="Name" id="name" value="{{ old('name') }}" name="name">
+                        <input type="text" class="form-control" placeholder="Name" id="name" value="{{ old('name') }}" name="name" maxlength="32">
                         <br>
-                        <input type="email" class="form-control" placeholder="E-mail" id="email" value="{{ old('email') }}" name="email">
+                        <input type="email" class="form-control" placeholder="E-mail" id="email" value="{{ old('email') }}" name="email" maxlength="255">
                         <br>
-                        <input type="text" class="form-control" placeholder="Comment" id="comment" value="{{ old('comment') }}" name="comment">
+                        <input type="text" class="form-control" placeholder="Comment" id="comment" value="{{ old('comment') }}" name="comment" maxlength="255">
                         <br>
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
                     </form>

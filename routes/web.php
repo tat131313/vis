@@ -15,10 +15,16 @@ Route::get('/', 'CommentController@index')->name('index');
 
 Route::post('addNewComment', 'CommentController@addNewComment')->name('addNewComment');
 
+Route::post('deleteComment', 'AdminController@deleteComment')->name('deleteComment');
+
 Route::get('admin', 'AdminController@index')->name('admin');
 
-Route::post('pswTrue', 'AdminController@enterPassword')->name('pswTrue');
+Auth::routes();
 
-Route::get('adminPage', 'AdminController@showAdminPage')->name('adminPage');
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
-Route::post('deleteComment', 'AdminController@deleteComment')->name('deleteComment');
+    Route::post('pswTrue', 'Auth\LoginController@login')->name('pswTrue');
+
+    Route::get('Page', 'AdminController@showAdminPage')->name('admin/Page');
+});
+  

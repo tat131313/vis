@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 <div class="container">
     <form class="form-signin" action="{{route('pswTrue')}}" method="POST">
         {{ csrf_field() }}
