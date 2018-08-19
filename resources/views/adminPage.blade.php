@@ -17,7 +17,7 @@
                                     <p>{{ $comment->comment }}</p>
                                     <hr>
                                 @endforeach
-                            </form>
+                            </form>                              
                         </div>
                     </div>
             </div>

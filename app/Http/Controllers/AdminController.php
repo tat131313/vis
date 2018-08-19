@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('psw');
+        return view('Auth.login');
     }
 
     public function showAdminPage()
